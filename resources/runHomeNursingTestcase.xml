@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="HOME NUSING" parallel="false">
+	<test name="Run on Chrome">
+		<classes>
+			<class name="ccv.homenursing.login.loginPageObject" />
+		</classes>
+	</test>
+</suite>
