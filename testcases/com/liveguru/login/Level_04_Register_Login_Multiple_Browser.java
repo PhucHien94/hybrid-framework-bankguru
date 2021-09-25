@@ -4,26 +4,29 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import commons.BaseTest;
 import pageObjects.liveGuru.HomePageObject;
 import pageObjects.liveGuru.LoginPageObject;
 import pageObjects.liveGuru.MyDashboardPageObject;
 
-public class Level_04_Register_Login_Multiple_Browser {
+public class Level_04_Register_Login_Multiple_Browser extends BaseTest{
 	WebDriver driver;
 	String emailAddress, password;
-	String projectLocation = System.getProperty("user.dir");
 
+	@Parameters({"browser","url"})
 	@BeforeClass
-	public void beforeClass() {
-		System.setProperty("webdriver.gecko.driver", projectLocation + "\\browserDrivers\\geckodriver.exe");
-		driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	public void beforeClass(String browserName, String appUrl) {
+
+		driver = getBrowserDriver(browserName, appUrl);
 
 		emailAddress = getRandomEmail();
 		password = "123456";
@@ -31,7 +34,6 @@ public class Level_04_Register_Login_Multiple_Browser {
 
 	@Test
 	public void Login_01_Empty_Email_And_Password() {
-		driver.get("http://live.demoguru99.com/index.php/");
 		homePage = new HomePageObject(driver);
 
 		homePage.clickToMyAccountFooterLink();
@@ -85,7 +87,6 @@ public class Level_04_Register_Login_Multiple_Browser {
 
 		loginPage.loginToSystem("dam@gmail.com", "123123");
 
-		// Login Page --> MyDashboar Page
 		myDashboardPage = new MyDashboardPageObject(driver);
 		Assert.assertTrue(myDashboardPage.isMyDashboardHeaderDisplayed());
 	}
