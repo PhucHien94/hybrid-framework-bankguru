@@ -13,10 +13,13 @@ import org.testng.annotations.Test;
 import commons.BaseTest;
 import pageObjects.nopCommerce.HomePageObject;
 import pageObjects.nopCommerce.LoginPageObject;
+import pageObjects.nopCommerce.MyAccountPageObject;
+import pageObjects.nopCommerce.OrderPageObject;
 import pageObjects.nopCommerce.PageGeneratorManager;
 import pageObjects.nopCommerce.RegisterPageObject;
+import pageObjects.nopCommerce.SearchPageObject;
 
-public class Level_06_Register_Login_Page_Generator extends BaseTest{
+public class Level_07_Register_Login_Page_Switch_Page extends BaseTest{
 	WebDriver driver;
 	String emailAddress, password;
 	String projectLocation = System.getProperty("user.dir");	
@@ -33,60 +36,45 @@ public class Level_06_Register_Login_Page_Generator extends BaseTest{
 	@Test
 	public void Login_01_Register_To_System() {		
 		homePage = PageGeneratorManager.getHomePage(driver);
-
-		// Step 2 : Verify Home Page slider displayed
-		Assert.assertTrue(homePage.isHomePageSliderDisplayed());
-		
-		// Step 3 : Click to Register link --> Register Page				
+		Assert.assertTrue(homePage.isHomePageSliderDisplayed());	
 		registerPage = homePage.clickToRegisterLink();
-		
-		// Step 4 : Click to Gender male radio
 		registerPage.clickToGenderMaleRadioButton();
-		
-		// Step 5 : Input to Firstname textbox
 		registerPage.enterToFirstnameTextbox("John");
-		
-		// Step 6 : Input to Lastname textbox
 		registerPage.enterToLastnameTextbox("Terry");
-		
-		// Step 7 : Input to Email textbox
 		registerPage.enterToEmailTextbox(emailAddress);
-		
-		// Step 8 : Input to Password textbox
 		registerPage.enterToPasswordTextbox(password);
-
-		// Step 9 : Input to Confirm Password textbox
 		registerPage.enterToConfirmPasswordTextbox(password);
-		
-		// Step 10 : Click to Register button
 		registerPage.clickToRegisterButton();
-
-		// Step 11 : Verify Success message displayed
 		Assert.assertTrue(registerPage.isSuccessMessageDisplayed());
-		
-		// Step 12 : Click to Logout link --> Home Page		
 		homePage = registerPage.clickToLogoutLink();
-		
-		// Step 13 : Verify Home Page slider displayed
 		Assert.assertTrue(homePage.isHomePageSliderDisplayed());
 	}
 	
 	@Test
 	public void Login_02_Login_To_System() {
-		// Step 1 : Click to Login link		
 		loginPage = homePage.clickToLoginLink();
-
-		// Step 2 : Input to Email textbox
 		loginPage.enterToEmailTextbox(emailAddress);
-		
-		// Step 3 : Input to Password textbox
 		loginPage.enterToPasswordTextbox(password);
-
-		// Step 4 : Click to Login button 		
 		homePage = loginPage.clickToLoginButton();
-		
-		// Step 5 : Verify Home Page slider displayed
 		Assert.assertTrue(homePage.isHomePageSliderDisplayed());
+	}
+	
+	@Test
+	public void Login_03_Switch_Page_At_Footer() {
+		// Home Page --> Search Page
+		searchPage = homePage.openSearchPage(driver);
+		
+		// Search Page --> My Account Page 
+		myAccountPage = searchPage.openMyAccountPage(driver);
+		
+		// My Accout Pate --> Order Page
+		orderPage = myAccountPage.openOrderPage(driver);
+		
+		// Other Page --> My Account
+		myAccountPage = orderPage.openMyAccountPage(driver);
+		
+		// My Account --> Search
+		searchPage = myAccountPage.openSearchPage(driver);
 	}
 	
 	@AfterClass
@@ -102,4 +90,7 @@ public class Level_06_Register_Login_Page_Generator extends BaseTest{
 	HomePageObject homePage;
 	LoginPageObject loginPage;
 	RegisterPageObject registerPage;
+	SearchPageObject searchPage;
+	MyAccountPageObject myAccountPage;
+	OrderPageObject orderPage;
 }

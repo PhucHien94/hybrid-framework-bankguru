@@ -1,6 +1,6 @@
 package commons;
 
-import java.io.File;
+//import java.io.File;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -13,20 +13,20 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	private WebDriver driver;
-	private String projectLocation = System.getProperty("user.dir");
-	private String osName = System.getProperty("os.name");
+	//private String projectLocation = System.getProperty("user.dir");
+	//private String osName = System.getProperty("os.name");
 
 	private enum BROWSER {
 		CHROME, FIREFOX, IE, SAFARI, EDGE_lEGACY, EDGE_CHROMIUM, H_CHROME, H_FIREFOX;
 	}
 
-	private enum OS {
-		WINDOWS, MAC_OSX, LINUX;
-	}
+	/*
+	 * private enum OS { WINDOWS, MAC_OSX, LINUX; }
+	 */
 
-	private enum PLATFORM {
-		ANDROID, IOS, WINDOW_PHONE;
-	}
+	/*
+	 * private enum PLATFORM { ANDROID, IOS, WINDOW_PHONE; }
+	 */
 
 	protected WebDriver getBrowserDriver(String browserName) {
 		BROWSER browser = BROWSER.valueOf(browserName.toUpperCase());
@@ -68,7 +68,7 @@ public class BaseTest {
 
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-		driver.get(appUrl);
+		driver.get(GlobalConstants.DEV_APP_URL);
 
 		return driver;
 	}
@@ -78,9 +78,9 @@ public class BaseTest {
 		return rand.nextInt(9999) + "@mail.vn";
 	}
 
-	private String getSlash(String folderName) {
-		String separator = File.separator;
-		return separator + folderName + separator;
-	}
+	/*
+	 * private String getSlash(String folderName) { String separator =
+	 * File.separator; return separator + folderName + separator; }
+	 */
 
 }

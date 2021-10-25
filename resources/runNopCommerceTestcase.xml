@@ -9,7 +9,7 @@
 		
 			<!-- <class name="com.nopcommerce.login.Level_04_Register_Login_Multiple_Browser" />
 			<class name="com.nopcommerce.login.Level_05_Register_Login_Page_Factory" />< -->
-			<class name="com.nopcommerce.login.Level_06_Register_Login_Page_Generator" />
+			<class name="com.nopcommerce.login.Level_08_Register_Login_Page_Dynamic_Locator" />
 		</classes>
 	</test>
 </suite>

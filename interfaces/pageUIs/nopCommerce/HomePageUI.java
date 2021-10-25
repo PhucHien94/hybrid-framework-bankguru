@@ -11,4 +11,5 @@ public class HomePageUI {
 	public static final String HOME_PAGE_SLIDER = "//div[@id='nivo-slider']";
 	public static final String REGISTER_LINK = "//a[contains(text(),'Register')]";
 	public static final String LOGIN_LINK = "//a[contains(text(),'Log in')]";	
+	
 }
