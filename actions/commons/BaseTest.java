@@ -68,7 +68,8 @@ public class BaseTest {
 
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
-		driver.get(GlobalConstants.DEV_APP_URL);
+		//driver.get(GlobalConstants.DEV_APP_URL);
+		driver.get(appUrl);
 
 		return driver;
 	}

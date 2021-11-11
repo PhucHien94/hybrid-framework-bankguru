@@ -8,4 +8,5 @@ public class HomePageUI {
 	public static final String ROW_VALUE_BY_FEMALE_COUNTRY_MALE_TOTAL = "//td[@data-key='females' and text()='%s']/following-sibling::td[@data-key='country' and text()='%s']/following-sibling::td[@data-key='males' and text()='%s']/following-sibling::td[@data-key='total' and text()='%s']";	
 	public static final String HEADER_NAME_INDEX = "//th[text()='%s']/preceding-sibling::th";	
 	public static final String TEXTBOX_BY_COLUMN_ROW_INDEX = "//tr[%s]/td[%s]/input";	
+	public static final String ACTION_BUTTON_BY_ROW_INDEX = "//tr[@id][%s]//button[@title='%s']";	
 }

@@ -72,12 +72,26 @@ public class Level_09_DataTable extends BaseTest{
 		homePage.refreshCurrentPage(driver);		
 	}
 	
-	@Test
+	//@Test
 	public void Table_05_Input_To_Row_Textbox() {
+		System.out.println(homePage.getPageTitle(driver));
+		
 		homePage.inputToTextboxByRowNumber("Contact Person","3","John Kenedy");
 		homePage.sleepInSecond(3);
 
 		homePage.inputToTextboxByRowNumber("Order Placed","1","5");
+		homePage.sleepInSecond(3);
+	}
+	
+	@Test
+	public void Table_06_Click_Icon_At_Row() {
+		homePage.clickToIconByRowNumber("2","Move Up");
+		homePage.sleepInSecond(3);
+
+		homePage.clickToIconByRowNumber("3","Remove Current Row");
+		homePage.sleepInSecond(3);
+		
+		homePage.clickToIconByRowNumber("2","Remove Current Row");
 		homePage.sleepInSecond(3);
 	}
 	

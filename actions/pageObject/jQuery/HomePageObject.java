@@ -46,4 +46,9 @@ public class HomePageObject extends BasePage {
 		senkeyToElement(driver, HomePageUI.TEXTBOX_BY_COLUMN_ROW_INDEX, value, rowIndex, String.valueOf(columnIndex));
 	}
 
+	public void clickToIconByRowNumber(String rowIndex, String iconAction) {
+		waitForElementVisible(driver, HomePageUI.ACTION_BUTTON_BY_ROW_INDEX, rowIndex, iconAction);
+		clickToElement(driver, HomePageUI.ACTION_BUTTON_BY_ROW_INDEX, rowIndex, iconAction);
+	}
+
 }

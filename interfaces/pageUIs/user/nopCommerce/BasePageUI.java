@@ -1,4 +1,4 @@
-package pageUIs.nopCommerce;
+package pageUIs.user.nopCommerce;
 
 public class BasePageUI {
 	//20 pages in footer
