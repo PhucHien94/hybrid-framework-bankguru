@@ -1,9 +1,6 @@
-package pageObject.admin.nopCommerce;
+package pageObjects.admin.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
-
-import pageObjects.user.nopCommerce.HomePageObject;
-import pageObjects.user.nopCommerce.LoginPageObject;
 
 public class PageGeneratorManager {
 	public static LoginPageObject loginPage;

@@ -14,12 +14,12 @@ public class LoginPageObject extends BasePage{
 	
 	public void enterToEmailTextbox(String emailAddress) {
 		waitForElementVisible(driver, LoginPageUI.EMAIL_TEXTBOX);
-		senkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, emailAddress);
+		sendkeyToElement(driver, LoginPageUI.EMAIL_TEXTBOX, emailAddress);
 	}
 
 	public void enterToPasswordTextbox(String password) {
 		waitForElementVisible(driver, LoginPageUI.PASSWORD_TEXTBOX);
-		senkeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, password);
+		sendkeyToElement(driver, LoginPageUI.PASSWORD_TEXTBOX, password);
 	}
 
 	public HomePageObject clickToLoginButton() {

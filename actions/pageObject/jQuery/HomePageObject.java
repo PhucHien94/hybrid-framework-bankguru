@@ -25,7 +25,7 @@ public class HomePageObject extends BasePage {
 
 	public void inputToHeaderTextboxByName(String headerName, String value) {
 		waitForElementVisible(driver, HomePageUI.HEADER_TEXTBOX_BY_NAME, headerName);
-		senkeyToElement(driver, HomePageUI.HEADER_TEXTBOX_BY_NAME, value, headerName);
+		sendkeyToElement(driver, HomePageUI.HEADER_TEXTBOX_BY_NAME, value, headerName);
 		pressKeyToElement(driver, HomePageUI.HEADER_TEXTBOX_BY_NAME, Keys.ENTER, headerName);
 	}
 
@@ -43,7 +43,7 @@ public class HomePageObject extends BasePage {
 		// column index
 		int columnIndex = getElementSize(driver, HomePageUI.HEADER_NAME_INDEX, headerName) + 1;
 		waitForElementVisible(driver, HomePageUI.TEXTBOX_BY_COLUMN_ROW_INDEX, rowIndex, String.valueOf(columnIndex));
-		senkeyToElement(driver, HomePageUI.TEXTBOX_BY_COLUMN_ROW_INDEX, value, rowIndex, String.valueOf(columnIndex));
+		sendkeyToElement(driver, HomePageUI.TEXTBOX_BY_COLUMN_ROW_INDEX, value, rowIndex, String.valueOf(columnIndex));
 	}
 
 	public void clickToIconByRowNumber(String rowIndex, String iconAction) {

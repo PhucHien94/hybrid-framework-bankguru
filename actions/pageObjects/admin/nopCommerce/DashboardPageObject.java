@@ -1,12 +1,14 @@
-package pageObject.admin.nopCommerce;
+package pageObjects.admin.nopCommerce;
 
 import org.openqa.selenium.WebDriver;
 
-public class DashboardPageObject {
+import commons.BasePage;
+
+public class DashboardPageObject extends BasePage {
 	WebDriver driver;
 	
 	public DashboardPageObject(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+
 }
